@@ -1,0 +1,12 @@
+/* ==========================================================================
+   Create Problem Page
+   ========================================================================== */
+
+.create-problem-page h1 {
+  font-size: 24px;
+}
+.create-problem-page > div:first-child p {
+  margin-top: 4px;
+  font-size: 14px;
+  max-width: 60ch;
+}

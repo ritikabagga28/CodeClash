@@ -1,0 +1,108 @@
+/* ==========================================================================
+   LevelComplete / Result Page
+   ========================================================================== */
+
+.result-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 48px;
+}
+
+.result-card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.result-card-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.result-emoji {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--success);
+  margin-bottom: 14px;
+}
+
+.result-kicker {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--success);
+  margin-bottom: 8px;
+}
+
+.result-kicker-partial {
+  color: var(--error);
+}
+
+.result-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.result-rewards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.result-reward {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--warning);
+}
+.result-reward:last-child {
+  color: var(--accent-light);
+}
+
+.result-testline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.result-level-block {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.result-level-label {
+  display: block;
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.result-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}

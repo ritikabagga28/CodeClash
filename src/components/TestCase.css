@@ -1,0 +1,115 @@
+/* ==========================================================================
+   TestCase — Test result display
+   ========================================================================== */
+
+.testcase {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  background: var(--bg-elevated);
+  transition: border-color var(--transition-normal);
+}
+
+.testcase-pending {
+  border-color: var(--border);
+}
+.testcase-passed {
+  border-color: rgba(34, 197, 94, 0.25);
+  background: rgba(34, 197, 94, 0.03);
+}
+.testcase-failed {
+  border-color: rgba(239, 68, 68, 0.25);
+  background: rgba(239, 68, 68, 0.03);
+}
+
+.testcase-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.testcase-icon {
+  display: inline-flex;
+  color: var(--text-muted);
+}
+.testcase-passed .testcase-icon {
+  color: var(--success);
+}
+.testcase-failed .testcase-icon {
+  color: var(--error);
+}
+
+.testcase-title {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.testcase-verdict {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.testcase-verdict-pass {
+  color: var(--success);
+}
+.testcase-verdict-fail {
+  color: var(--error);
+}
+
+.testcase-io {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.testcase-io-label {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.testcase-io-label-fail {
+  color: var(--error);
+}
+
+.testcase-io-value {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-primary);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px 8px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.testcase-io-value-fail {
+  border-color: rgba(239, 68, 68, 0.25);
+  color: var(--error);
+}
+
+.testcase-passed .testcase-io-value {
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+.testcase-error {
+  margin: 10px 0 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--error);
+  background: rgba(239, 68, 68, 0.06);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 4px;
+  padding: 8px 10px;
+  white-space: pre-wrap;
+  max-height: 160px;
+  overflow-y: auto;
+}

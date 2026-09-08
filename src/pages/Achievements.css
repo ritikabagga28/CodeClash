@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Achievements Page
+   ========================================================================== */
+
+.achievements-page h1 {
+  font-size: 24px;
+}
+.achievements-page > div > p {
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.achievement-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px 18px;
+  opacity: 0.4;
+  transition: all var(--transition-normal);
+}
+
+.achievement-unlocked {
+  opacity: 1;
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.achievement-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: rgba(245, 158, 11, 0.08);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.achievement-unlocked .achievement-icon {
+  color: var(--warning);
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.achievement-name {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.achievement-description {
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.achievement-lock-tag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}

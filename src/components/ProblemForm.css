@@ -1,0 +1,144 @@
+/* ==========================================================================
+   ProblemForm — Create problem form styling
+   ========================================================================== */
+
+.problem-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field > span:first-child {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color var(--transition-fast);
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--accent);
+}
+
+.form-field select {
+  cursor: pointer;
+  appearance: auto;
+}
+
+.form-code {
+  font-size: 13px;
+  min-height: 200px;
+}
+
+.form-testcases {
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-testcases-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.form-testcases-header > span:first-child {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.form-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.form-testcase-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+}
+
+.form-remove-testcase {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--error);
+  border-radius: var(--radius-sm);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.form-remove-testcase:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.08);
+}
+.form-remove-testcase:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+
+.form-success {
+  font-size: 13px;
+  color: var(--success);
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .form-testcase-row {
+    grid-template-columns: 1fr;
+  }
+  .form-remove-testcase {
+    justify-self: flex-start;
+  }
+}
