@@ -1,74 +1,57 @@
-/* ==========================================================================
-   LevelCard — Compact level progression indicator
-   ========================================================================== */
-
 .level-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
-  border-radius: var(--radius-md);
+  background: var(--bg-surface);
   border: 1px solid var(--border);
-  background: var(--card);
-  transition: border-color var(--transition-fast);
-}
-
-.level-card-icon {
-  width: 36px;
-  height: 36px;
   border-radius: var(--radius-sm);
+  padding: 16px 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.level-card-complete {
-  border-color: rgba(34, 197, 94, 0.2);
-}
-.level-card-complete .level-card-icon {
-  background: rgba(34, 197, 94, 0.1);
-  color: var(--success);
+  justify-content: space-between;
 }
 
 .level-card-current {
-  border-color: rgba(99, 102, 241, 0.3);
-}
-.level-card-current .level-card-icon {
-  background: rgba(99, 102, 241, 0.1);
-  color: var(--accent);
+  border-color: var(--crimson);
+  background: var(--bg-card);
 }
 
-.level-card-locked {
-  opacity: 0.45;
-}
-.level-card-locked .level-card-icon {
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text-muted);
+.level-card-info {
+  display: flex;
+  flex-direction: column;
 }
 
-.level-card-number {
+.level-card-num {
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
 }
 
 .level-card-name {
-  font-weight: 600;
   font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .level-card-tag {
-  margin-left: auto;
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 700;
-  color: var(--accent-light);
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.25);
-  padding: 3px 8px;
-  border-radius: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+}
+
+.level-card-tag-current {
+  color: var(--crimson);
+  background: var(--crimson-glow);
+  border: 1px solid var(--crimson);
+}
+
+.level-card-tag-complete {
+  color: var(--success);
+  background: var(--success-glow);
+  border: 1px solid var(--success);
+}
+
+.level-card-tag-locked {
+  color: var(--text-muted);
+  background: var(--bg-elevated);
 }

@@ -2,16 +2,13 @@ import { createContext, useContext, useEffect, useState, useCallback, useMemo } 
 import { levelForXp, nextLevelForXp } from "../data/challenges";
 
 // ============================================================================
-// Single source of truth for "player" progress. Everything here is kept in
-// React state and mirrored to localStorage, so the prototype survives a
-// refresh without needing a backend yet. Evaluation 2 swaps the persistence
-// layer (see the two useEffects at the bottom) for real API calls without
-// touching any component that consumes this context.
+// Single source of truth for "player" progress and theme state.
 // ============================================================================
 
-const STORAGE_KEY = "codearena.progress.v1";
-const CUSTOM_KEY = "codearena.customChallenges.v1";
-const AUTH_KEY = "codearena.auth.v1";
+const STORAGE_KEY = "codeclash.progress.v1";
+const CUSTOM_KEY = "codeclash.customChallenges.v1";
+const AUTH_KEY = "codeclash.auth.v1";
+const THEME_KEY = "codeclash.theme.v1";
 
 const defaultProgress = {
   xp: 0,
@@ -52,10 +49,21 @@ function loadAuth() {
   }
 }
 
+function loadTheme() {
+  try {
+    const stored = localStorage.getItem(THEME_KEY);
+    if (stored === "light" || stored === "dark") return stored;
+    return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  } catch {
+    return "dark";
+  }
+}
+
 export function AppProvider({ children }) {
   const [progress, setProgress] = useState(loadProgress);
   const [customChallenges, setCustomChallenges] = useState(loadCustomChallenges);
   const [auth, setAuth] = useState(loadAuth);
+  const [theme, setTheme] = useState(loadTheme);
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
@@ -68,6 +76,15 @@ export function AppProvider({ children }) {
   useEffect(() => {
     localStorage.setItem(AUTH_KEY, JSON.stringify(auth));
   }, [auth]);
+
+  useEffect(() => {
+    localStorage.setItem(THEME_KEY, theme);
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
+  const toggleTheme = useCallback(() => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  }, []);
 
   const completeChallenge = useCallback((challenge, { passedCount, totalCount }) => {
     const allPassed = passedCount === totalCount;
@@ -103,10 +120,6 @@ export function AppProvider({ children }) {
     setProgress(defaultProgress);
   }, []);
 
-  // NOTE: this is a UI-only stand-in for real authentication. It doesn't
-  // check a password against anything — it just records "someone is signed
-  // in" so the sidebar/dashboard can react to it. Evaluation 2 swaps this
-  // for a real auth call without touching the components that read `auth`.
   const login = useCallback((username) => {
     setAuth({ isLoggedIn: true, username: username?.trim() || "Coder" });
   }, []);
@@ -134,6 +147,9 @@ export function AppProvider({ children }) {
       auth,
       login,
       logout,
+      theme,
+      toggleTheme,
+      setTheme,
     };
   }, [
     progress,
@@ -144,6 +160,8 @@ export function AppProvider({ children }) {
     auth,
     login,
     logout,
+    theme,
+    toggleTheme,
   ]);
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

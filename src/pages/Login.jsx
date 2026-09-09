@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { LogIn, User, UserPlus } from "lucide-react";
-import Button from "../components/Button";
+import { ArrowRight, User } from "lucide-react";
 import Logo from "../components/Logo";
 import { useApp } from "../context/AppContext";
 import "./Login.css";
@@ -43,52 +42,50 @@ export default function Login({ initialMode = "login" }) {
   const isSignUp = mode === "signup";
 
   return (
-    <div className="page login-page">
-      <div className="login-card">
+    <div className="login-page-container">
+      <div className="login-card-editorial">
         {/* Brand Header */}
-        <div className="login-brand-header">
-          <div className="login-brand-icon-wrapper">
-            <Logo size={28} />
-          </div>
-          <span className="login-brand-text">
-            Code<span className="login-brand-accent">Clash</span>
+        <div className="login-brand-badge">
+          <Logo size={28} />
+          <span className="login-brand-title">
+            CODE <span className="text-crimson">CLASH</span>
           </span>
         </div>
 
         {/* Auth Mode Tabs */}
-        <div className="login-tabs" role="tablist">
+        <div className="login-tab-bar" role="tablist">
           <button
             type="button"
-            className={`login-tab ${!isSignUp ? "active" : ""}`}
+            className={`login-tab-item ${!isSignUp ? "active" : ""}`}
             onClick={() => setMode("login")}
             role="tab"
             aria-selected={!isSignUp}
           >
-            Sign In
+            SIGN IN
           </button>
           <button
             type="button"
-            className={`login-tab ${isSignUp ? "active" : ""}`}
+            className={`login-tab-item ${isSignUp ? "active" : ""}`}
             onClick={() => setMode("signup")}
             role="tab"
             aria-selected={isSignUp}
           >
-            Sign Up
+            SIGN UP
           </button>
         </div>
 
-        <h1 className="login-title">
-          {isSignUp ? "Create your account" : "Welcome back"}
+        <h1 className="login-card-headline">
+          {isSignUp ? "Enter the Arena" : "Welcome Back"}
         </h1>
-        <p className="login-subtitle">
+        <p className="login-card-sub">
           {isSignUp
-            ? "Join CodeClash to compete, earn XP, and track your coding streak."
-            : "Sign in to pick up your streak where you left off."}
+            ? "Create your competitor profile to join the official championship."
+            : "Sign in to access your battleground and track active streak points."}
         </p>
 
-        <form className="login-form" onSubmit={handleSubmit}>
-          <label className="login-field">
-            <span>Username or email</span>
+        <form className="login-form-group" onSubmit={handleSubmit}>
+          <label className="login-input-label">
+            <span>COMPETITOR USERNAME / EMAIL</span>
             <input
               type="text"
               value={username}
@@ -99,8 +96,8 @@ export default function Login({ initialMode = "login" }) {
             />
           </label>
 
-          <label className="login-field">
-            <span>Password</span>
+          <label className="login-input-label">
+            <span>PASSWORD</span>
             <input
               type="password"
               value={password}
@@ -111,40 +108,23 @@ export default function Login({ initialMode = "login" }) {
             />
           </label>
 
-          <Button
-            type="submit"
-            variant="primary"
-            size="lg"
-            icon={isSignUp ? UserPlus : LogIn}
-            loading={submitting}
-            fullWidth
-          >
-            {isSignUp ? "Create Account" : "Sign In"}
-          </Button>
+          <button type="submit" className="btn-primary-clash full-width" disabled={submitting}>
+            <span>{submitting ? "VERIFYING..." : isSignUp ? "CREATE COMPETITOR ACCOUNT" : "ENTER THE CLASH"}</span>
+            <ArrowRight size={14} />
+          </button>
         </form>
 
-        <div className="login-divider">
-          <span>or</span>
+        <div className="login-divider-line">
+          <span>OR</span>
         </div>
 
-        <Button variant="ghost" size="lg" icon={User} onClick={handleGuest} fullWidth>
-          Continue as Guest
-        </Button>
+        <button type="button" className="btn-secondary-clash full-width" onClick={handleGuest}>
+          <User size={14} />
+          <span>CONTINUE AS GUEST</span>
+        </button>
 
-        <p className="login-note">
-          This is a prototype — any username and password signs you in. Real accounts arrive in a
-          later evaluation.
-        </p>
-
-        <p className="login-footer-link">
-          {isSignUp ? "Already have an account? " : "New here? "}
-          <button
-            type="button"
-            className="login-footer-action"
-            onClick={() => setMode(isSignUp ? "login" : "signup")}
-          >
-            {isSignUp ? "Sign in to your account" : "Create an account"}
-          </button>
+        <p className="login-disclaimer">
+          Prototype Mode — enter any credentials to access the Code Clash platform.
         </p>
       </div>
     </div>

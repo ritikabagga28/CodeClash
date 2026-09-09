@@ -1,5 +1,5 @@
 import { useMemo, useRef } from "react";
-import { Play, Send, RotateCcw, Coffee } from "lucide-react";
+import { Play, Send, RotateCcw, Terminal } from "lucide-react";
 import Button from "./Button";
 import { useCodeTextarea } from "../hooks/useCodeTextarea";
 import "./CodeEditor.css";
@@ -30,8 +30,8 @@ export default function CodeEditor({ code, onChange, onRun, onSubmit, onReset, i
     <div className="editor">
       <div className="editor-toolbar">
         <span className="editor-lang">
-          <Coffee size={14} />
-          Java
+          <Terminal size={14} />
+          Java 17
         </span>
         <button type="button" className="editor-reset" onClick={onReset} title="Reset to starter code">
           <RotateCcw size={13} />

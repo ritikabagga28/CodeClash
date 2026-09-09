@@ -1,79 +1,73 @@
-export default function Logo({ size = 20, className = "" }) {
+export default function Logo({ size = 22, className = "" }) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 24 24"
+      viewBox="0 0 28 28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       style={{ display: "inline-block", verticalAlign: "middle" }}
     >
-      {/* Blade 1 (Top-Right to Bottom-Left) */}
-      <line
-        x1="20"
-        y1="4"
-        x2="8"
-        y2="16"
+      {/* Code Brackets */}
+      <path
+        d="M 7 9 L 2 14 L 7 19"
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="1.75"
         strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity="0.85"
       />
-      {/* Guard 1 */}
-      <line
-        x1="6"
-        y1="14"
-        x2="10"
-        y2="18"
+      <path
+        d="M 21 9 L 26 14 L 21 19"
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="1.75"
         strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity="0.85"
       />
-      {/* Handle 1 */}
+
+      {/* Crossed Sword Blades */}
       <line
         x1="8"
-        y1="16"
-        x2="5"
-        y2="19"
+        y1="6"
+        x2="20"
+        y2="22"
         stroke="currentColor"
-        strokeWidth="2.5"
+        strokeWidth="1.75"
         strokeLinecap="round"
       />
-      {/* Pommel 1 */}
-      <circle cx="4" cy="20" r="1" fill="currentColor" />
+      <line
+        x1="18"
+        y1="21"
+        x2="21"
+        y2="18"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+      />
 
-      {/* Blade 2 (Top-Left to Bottom-Right) */}
       <line
-        x1="4"
-        y1="4"
-        x2="16"
-        y2="16"
+        x1="20"
+        y1="6"
+        x2="8"
+        y2="22"
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="1.75"
         strokeLinecap="round"
       />
-      {/* Guard 2 */}
       <line
-        x1="14"
+        x1="7"
         y1="18"
-        x2="18"
-        y2="14"
+        x2="10"
+        y2="21"
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="1.75"
         strokeLinecap="round"
       />
-      {/* Handle 2 */}
-      <line
-        x1="16"
-        y1="16"
-        x2="19"
-        y2="19"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
-      {/* Pommel 2 */}
-      <circle cx="20" cy="20" r="1" fill="currentColor" />
+
+      {/* Subtle Clash Intersection Point */}
+      <circle cx="14" cy="14" r="1.5" fill="var(--crimson, #C62828)" />
     </svg>
   );
 }

@@ -1,72 +1,104 @@
 /* ==========================================================================
-   Code Arena — Design Tokens
-   A sophisticated dark developer-focused theme. Indigo for interactive,
-   green for pass, amber for warnings, red for errors.
-   Inter for body copy, JetBrains Mono for code, Space Grotesk for display.
+   CODE CLASH — Design Tokens & Foundations
+   Design Aesthetic: Premium Editorial + Metallic Precision + Sword Geometry
    ========================================================================== */
 
-:root {
-  /* Surfaces */
-  --bg: #0B1120;
-  --bg-elevated: #111827;
-  --card: #151E2E;
-  --card-raised: #1A2332;
-  --border: #263244;
-  --border-soft: #1E293B;
+:root,
+[data-theme="dark"] {
+  /* Surfaces — Midnight Navy Palette (NO PURE BLACK #000000) */
+  --bg: #111827;
+  --bg-surface: #172033;
+  --bg-card: #1C2638;
+  --bg-elevated: #243047;
+  --bg-translucent: rgba(23, 32, 51, 0.85);
 
-  /* Text */
-  --text-primary: #F1F5F9;
-  --text-secondary: #94A3B8;
+  /* Borders */
+  --border: #2A364F;
+  --border-subtle: rgba(201, 208, 212, 0.12);
+  --border-metallic: #C9D0D4;
+
+  /* Typography */
+  --text-primary: #F3EFE6; /* Warm Ivory */
+  --text-secondary: #94A3B8; /* Muted Slate Blue */
   --text-muted: #64748B;
+  --text-inverse: #111827;
 
-  /* Brand / interactive */
-  --accent: #6366F1;
-  --accent-dim: #4F46E5;
-  --accent-light: #818CF8;
-  --accent-glow: rgba(99, 102, 241, 0.15);
+  /* Metallic & Brand Palette */
+  --silver: #C9D0D4;
+  --silver-light: #E2E8F0;
+  --silver-dark: #718096;
+  --crimson: #C62828;
+  --crimson-hover: #D32F2F;
+  --crimson-glow: rgba(198, 40, 40, 0.18);
+  --copper: #B87333;
+  --copper-light: #D48846;
+  --copper-glow: rgba(184, 115, 51, 0.18);
 
-  /* Semantic */
+  /* Semantic State Colors */
+  --accent: var(--crimson);
+  --accent-secondary: var(--copper);
+  --easy: #475569; /* Muted slate for easy */
+  --medium: var(--copper);
+  --hard: var(--crimson);
   --success: #22C55E;
-  --success-glow: rgba(34, 197, 94, 0.12);
-  --warning: #F59E0B;
-  --warning-glow: rgba(245, 158, 11, 0.12);
-  --error: #EF4444;
-  --error-glow: rgba(239, 68, 68, 0.12);
+  --success-glow: rgba(34, 197, 94, 0.15);
 
-  /* Difficulty (subtle) */
-  --easy: #22C55E;
-  --medium: #F59E0B;
-  --hard: #EF4444;
+  /* Visual Tokens */
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.25);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.2);
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
 
-  /* Backwards compat aliases */
-  --violet: var(--accent);
-  --violet-dim: var(--accent-dim);
-  --blue: #3B82F6;
-  --violet-glow: var(--accent-glow);
-  --fail: var(--error);
-  --fail-glow: var(--error-glow);
-  --xp: var(--warning);
-  --xp-glow: var(--warning-glow);
-  --locked: #334155;
-
-  /* Type */
-  --font-display: "Space Grotesk", "Inter", sans-serif;
-  --font-body: "Inter", sans-serif;
+  /* Font Families */
+  --font-display: "Space Grotesk", "Cinzel", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
-
-  /* Radii */
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-
-  /* Shadows */
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-elevated: 0 4px 12px rgba(0, 0, 0, 0.4);
 
   /* Transitions */
   --transition-fast: 150ms ease;
-  --transition-normal: 200ms ease;
+  --transition-normal: 250ms ease;
+  --transition-theme: 300ms ease;
 }
+
+[data-theme="light"] {
+  /* Surfaces — Warm Ivory & Mist Gray (NO PURE WHITE #FFFFFF) */
+  --bg: #F3EFE6; /* Warm Ivory */
+  --bg-surface: #DDE2E5; /* Mist Gray */
+  --bg-card: #E8ECEF;
+  --bg-elevated: #D3D9DE;
+  --bg-translucent: rgba(243, 239, 230, 0.9);
+
+  /* Borders */
+  --border: #C3CCD2;
+  --border-subtle: rgba(23, 32, 51, 0.1);
+  --border-metallic: #718096;
+
+  /* Typography */
+  --text-primary: #111827; /* Dark Midnight Navy */
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --text-inverse: #F3EFE6;
+
+  /* Metallic & Brand Palette in Light Mode */
+  --silver: #4A5568;
+  --silver-light: #1A202C;
+  --silver-dark: #A0AEC0;
+  --crimson: #B71C1C;
+  --crimson-hover: #C62828;
+  --crimson-glow: rgba(183, 28, 28, 0.12);
+  --copper: #A05A1C;
+  --copper-light: #B87333;
+  --copper-glow: rgba(160, 90, 28, 0.12);
+
+  /* Visual Tokens */
+  --shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* ==========================================================================
+   Global Reset & Base Setup
+   ========================================================================== */
 
 * {
   box-sizing: border-box;
@@ -82,28 +114,30 @@ body {
   background: var(--bg);
   color: var(--text-primary);
   font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.5;
+  transition: background-color var(--transition-theme), color var(--transition-theme);
 }
 
 #root {
   min-height: 100vh;
 }
 
-h1, h2, h3, h4 {
+/* Editorial Typography Rules */
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 600;
-  line-height: 1.2;
-  margin: 0;
-  letter-spacing: -0.01em;
   color: var(--text-primary);
+  line-height: 1.15;
+  margin: 0;
+  letter-spacing: -0.02em;
 }
 
 p {
   margin: 0;
   color: var(--text-secondary);
-  line-height: 1.6;
 }
 
 a {
@@ -120,42 +154,32 @@ code, pre, textarea.code-surface {
 }
 
 ::selection {
-  background: rgba(99, 102, 241, 0.3);
+  background: rgba(198, 40, 40, 0.3);
   color: var(--text-primary);
 }
 
-/* Scrollbars */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+/* Subtle Technical Grid & Grain Texture */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: radial-gradient(var(--text-primary) 1px, transparent 0);
+  background-size: 24px 24px;
 }
 
-/* Focus visibility */
+/* Focus styles */
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--silver-dark);
   outline-offset: 2px;
-  border-radius: 4px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
-}
-
-/* App layout — vertical (navbar on top) */
+/* Layout Containers */
 .app-shell {
   display: flex;
   flex-direction: column;
@@ -165,34 +189,33 @@ code, pre, textarea.code-surface {
 .app-main {
   flex: 1;
   min-width: 0;
-  padding: 32px 48px 64px;
-}
-
-@media (max-width: 860px) {
-  .app-main {
-    padding: 24px 16px 32px;
-  }
+  display: flex;
+  flex-direction: column;
 }
 
 .page {
-  max-width: 1280px;
+  width: 100%;
+  max-width: 1320px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
+  padding: 40px 32px 80px;
+}
+
+@media (max-width: 860px) {
+  .page {
+    padding: 24px 16px 48px;
+  }
 }
 
 .section-title {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 16px;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
 }
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-}
+/* Utility Helpers */
+.text-crimson { color: var(--crimson); }
+.text-copper { color: var(--copper); }
+.text-silver { color: var(--silver); }
+.text-muted { color: var(--text-muted); }
