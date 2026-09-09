@@ -1,59 +1,28 @@
-/* ==========================================================================
-   ProgressBar — Clean, thin progress indicator
-   ========================================================================== */
-
-.progress-block {
+.progress-bar-wrapper {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  width: 100%;
 }
 
-.progress-labels {
+.progress-bar-label {
   display: flex;
-  align-items: baseline;
   justify-content: space-between;
-}
-
-.progress-label {
-  font-size: 13px;
-  color: var(--text-secondary);
-  font-weight: 500;
-}
-
-.progress-numbers {
   font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--text-muted);
-  font-weight: 600;
+  color: var(--text-secondary);
 }
 
-.progress-track {
+.progress-bar-track {
   width: 100%;
-  background: var(--border);
-  border-radius: 4px;
+  height: 8px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   overflow: hidden;
-  border: none;
 }
 
-.progress-md {
-  height: 6px;
-}
-
-.progress-lg {
-  height: 10px;
-}
-
-.progress-fill {
+.progress-bar-fill {
   height: 100%;
-  border-radius: 4px;
-  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.progress-fill-xp {
-  background: var(--warning);
-}
-
-.progress-fill-success {
-  background: var(--success);
+  background: var(--crimson);
+  transition: width var(--transition-normal);
 }

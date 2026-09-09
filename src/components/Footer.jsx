@@ -8,37 +8,37 @@ export default function Footer() {
       <div className="footer-inner">
         <div className="footer-brand">
           <Link to="/" className="footer-logo">
-            <span className="footer-logo-icon">
-              <Logo size={18} />
-            </span>
+            <Logo size={20} />
             <span className="footer-logo-text">
-              Code<span className="footer-logo-accent">Clash</span>
+              CODE <span className="footer-logo-accent">CLASH</span>
             </span>
           </Link>
           <p className="footer-tagline">
-            The modern competitive programming platform for Java developers.
+            Where logic meets pressure. The premier championship platform for competitive programmers.
           </p>
         </div>
 
-        <div className="footer-links">
+        <div className="footer-columns">
           <div className="footer-col">
-            <span className="footer-col-title">Platform</span>
-            <Link to="/dashboard">Dashboard</Link>
-            <Link to="/challenges">Problems</Link>
+            <span className="footer-col-title">Championship</span>
+            <Link to="/challenges">Challenges</Link>
+            <Link to="/dashboard">Leaderboard</Link>
             <Link to="/progress">Progress</Link>
             <Link to="/achievements">Achievements</Link>
           </div>
 
           <div className="footer-col">
-            <span className="footer-col-title">Account</span>
-            <Link to="/login">Sign In</Link>
+            <span className="footer-col-title">Platform</span>
+            <Link to="/login">Enter Clash</Link>
+            <Link to="/create">Create Problem</Link>
             <Link to="/settings">Settings</Link>
           </div>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} CodeClash. Built for competitive programmers.</p>
+        <div className="footer-blade-line" />
+        <p>© {new Date().getFullYear()} CODE CLASH · International Competitive Programming Arena</p>
       </div>
     </footer>
   );

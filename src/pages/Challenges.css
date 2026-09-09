@@ -1,127 +1,111 @@
-/* ==========================================================================
-   Challenges Page — Professional problem list
-   ========================================================================== */
+/* Challenges Page Styling */
+.challenges-page {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
 
 .challenges-header h1 {
-  font-size: 24px;
-}
-.challenges-header p {
-  margin-top: 4px;
-  font-size: 14px;
-  max-width: 60ch;
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
 }
 
-/* Controls bar */
 .challenges-controls {
   display: flex;
-  align-items: center;
   gap: 16px;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* Search */
+@media (max-width: 768px) {
+  .challenges-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
 .challenges-search {
   position: relative;
   flex: 1;
-  max-width: 320px;
-  min-width: 200px;
+  max-width: 400px;
 }
 
 .challenges-search-icon {
   position: absolute;
-  left: 12px;
+  left: 14px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-muted);
-  pointer-events: none;
 }
 
 .challenges-search-input {
   width: 100%;
-  padding: 9px 12px 9px 36px;
-  background: var(--bg-elevated);
+  background: var(--bg-surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   color: var(--text-primary);
-  font-size: 13.5px;
-  font-family: var(--font-body);
+  padding: 10px 14px 10px 40px;
+  font-size: 14px;
   outline: none;
   transition: border-color var(--transition-fast);
 }
 
-.challenges-search-input::placeholder {
-  color: var(--text-muted);
-}
-
 .challenges-search-input:focus {
-  border-color: var(--accent);
+  border-color: var(--silver);
 }
 
-/* Filters */
 .filter-bar {
   display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
 }
 
 .filter-chip {
-  padding: 7px 14px;
-  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
   border: 1px solid var(--border);
-  background: transparent;
   color: var(--text-secondary);
-  font-size: 13px;
+  font-family: var(--font-mono);
+  font-size: 12px;
   font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
+  white-space: nowrap;
   transition: all var(--transition-fast);
-  font-family: var(--font-body);
 }
 
 .filter-chip:hover {
   color: var(--text-primary);
-  border-color: var(--accent);
-  background: rgba(99, 102, 241, 0.06);
+  border-color: var(--silver-dark);
 }
 
 .filter-chip-active {
-  background: var(--accent);
+  background: var(--crimson);
   color: #fff;
-  border-color: var(--accent);
-}
-
-.filter-chip-active:hover {
-  background: var(--accent-dim);
-  border-color: var(--accent-dim);
-  color: #fff;
-}
-
-/* Level groups */
-.challenges-level-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  border-color: var(--crimson);
 }
 
 .challenges-level-title {
-  font-size: 14px;
-  color: var(--text-muted);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text-primary);
 }
 
-.challenges-list {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.challenges-level-group {
+  margin-bottom: 40px;
 }
 
 .challenges-empty {
-  padding: 48px 0;
+  padding: 48px;
   text-align: center;
-}
-
-.challenges-empty p {
   color: var(--text-muted);
-  font-size: 14px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
 }
