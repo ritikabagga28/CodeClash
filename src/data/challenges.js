@@ -606,6 +606,43 @@ public class Main {
     ],
   },
   {
+    id: 9,
+    title: "Count Vowels and Consonants",
+    slug: "count-vowels-and-consonants",
+    level: 2,
+    difficulty: "Easy",
+    category: "Strings",
+    xp: 75,
+    points: 125,
+    description:
+      "Given a string, count the number of vowels and consonants present in the string. The vowels are a, e, i, o, u. Consider both uppercase and lowercase letters as valid characters. Ignore spaces, digits, and special characters when counting vowels and consonants. Print the counts in the format Vowels: X and Consonants: Y.",
+    inputFormat: "One line containing a string.",
+    outputFormat: "Two lines: Vowels: X and Consonants: Y.",
+    constraints: ["1 <= str.length <= 1000"],
+    examples: [{ input: "Hello World", output: "Vowels: 3\nConsonants: 7" }],
+    hint: "Convert characters to lowercase and check whether each character is a vowel. If it is an alphabetic character but not a vowel, count it as a consonant.",
+    starterCode: `import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String str = scanner.nextLine();
+
+        // Write your code here
+
+        scanner.close();
+    }
+}
+`,
+    testCases: [
+      { input: "Hello World", expected: "Vowels: 3\nConsonants: 7" },
+      { input: "AEIOU xyz", expected: "Vowels: 5\nConsonants: 3" },
+      { input: "Java 17!", expected: "Vowels: 2\nConsonants: 2" },
+      { input: "1234!@#", expected: "Vowels: 0\nConsonants: 0" },
+    ],
+  },
+  {
     id: 5,
     title: "Count Frequency",
     slug: "count-frequency",
