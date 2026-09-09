@@ -428,6 +428,51 @@ public class Main {
     ],
   },
   {
+    id: 5,
+    title: "Factorial of a Number",
+    slug: "factorial-of-a-number",
+    level: 1,
+    difficulty: "Easy",
+    category: "Basics",
+    xp: 50,
+    points: 100,
+    description:
+      "Given a non-negative integer n, calculate and print its factorial. The factorial of a number n is the product of all positive integers from 1 to n. For example: 5! = 5 x 4 x 3 x 2 x 1 = 120. The factorial of 0 is 1.",
+    inputFormat: "One line containing a non-negative integer.",
+    outputFormat: "The factorial of n.",
+    constraints: ["0 <= n <= 12"],
+    examples: [{ input: "5", output: "120" }],
+    hint: "Start with result = 1 and multiply it by every number from 1 to n.",
+    starterCode: `import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = scanner.nextInt();
+
+        // Write your code here
+    }
+}
+`,
+    testCases: [
+       { input: "0", expected: "1" },
+  { input: "3", expected: "6" },
+  { input: "6", expected: "720" },
+  { input: "9", expected: "362880" },
+  { input: "12", expected: "479001600" },
+  { input: "2", expected: "2" },
+  { input: "5", expected: "120" },
+  { input: "8", expected: "40320" },
+  { input: "11", expected: "39916800" },
+  { input: "1", expected: "1" },
+  { input: "4", expected: "24" },
+  { input: "7", expected: "5040" },
+  { input: "10", expected: "3628800" },
+    ],
+  },
+  {
     id: 4,
     title: "Palindrome Checker",
     slug: "palindrome-checker",
