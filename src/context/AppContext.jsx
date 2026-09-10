@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState, useCallback, useMemo } from "react";
 import { levelForXp, nextLevelForXp } from "../data/challenges";
+import { getActiveSession, saveActiveSession, clearActiveSession } from "../services/authService";
 
 // ============================================================================
 // Single source of truth for "player" progress and theme state.
@@ -7,7 +8,6 @@ import { levelForXp, nextLevelForXp } from "../data/challenges";
 
 const STORAGE_KEY = "codeclash.progress.v1";
 const CUSTOM_KEY = "codeclash.customChallenges.v1";
-const AUTH_KEY = "codeclash.auth.v1";
 const THEME_KEY = "codeclash.theme.v1";
 
 const defaultProgress = {
@@ -18,7 +18,7 @@ const defaultProgress = {
   lastResult: null, // { challengeId, xpEarned, pointsEarned, passed, total }
 };
 
-const defaultAuth = { isLoggedIn: false, username: "" };
+const defaultAuth = { isLoggedIn: false, username: "", user: null };
 
 const AppContext = createContext(null);
 
@@ -41,12 +41,7 @@ function loadCustomChallenges() {
 }
 
 function loadAuth() {
-  try {
-    const raw = localStorage.getItem(AUTH_KEY);
-    return raw ? { ...defaultAuth, ...JSON.parse(raw) } : defaultAuth;
-  } catch {
-    return defaultAuth;
-  }
+  return getActiveSession();
 }
 
 function loadTheme() {
@@ -72,10 +67,6 @@ export function AppProvider({ children }) {
   useEffect(() => {
     localStorage.setItem(CUSTOM_KEY, JSON.stringify(customChallenges));
   }, [customChallenges]);
-
-  useEffect(() => {
-    localStorage.setItem(AUTH_KEY, JSON.stringify(auth));
-  }, [auth]);
 
   useEffect(() => {
     localStorage.setItem(THEME_KEY, theme);
@@ -120,11 +111,16 @@ export function AppProvider({ children }) {
     setProgress(defaultProgress);
   }, []);
 
-  const login = useCallback((username) => {
-    setAuth({ isLoggedIn: true, username: username?.trim() || "Coder" });
+  const login = useCallback((userData) => {
+    const userObj = typeof userData === "string" ? { name: userData, email: "" } : userData;
+    const session = saveActiveSession(userObj);
+    if (session) {
+      setAuth(session);
+    }
   }, []);
 
   const logout = useCallback(() => {
+    clearActiveSession();
     setAuth(defaultAuth);
   }, []);
 

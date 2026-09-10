@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B111E"/>
+      <stop offset="50%" stop-color="#070B14"/>
+      <stop offset="100%" stop-color="#030509"/>
+    </linearGradient>
+
+    <!-- Subtle Tech Border Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.45"/>
+      <stop offset="35%" stop-color="#1E293B" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#0F172A" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <!-- Ambient Center Cyan Glow -->
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.22"/>
+      <stop offset="35%" stop-color="#0284C7" stop-opacity="0.10"/>
+      <stop offset="70%" stop-color="#0369A1" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Blade 1: Cyan / Electric Blade Gradient -->
+    <linearGradient id="bladeCyanLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0F7FF"/>
+      <stop offset="25%" stop-color="#38BDF8"/>
+      <stop offset="75%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0369A1"/>
+    </linearGradient>
+    <linearGradient id="bladeCyanRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="30%" stop-color="#BAE6FD"/>
+      <stop offset="80%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+
+    <!-- Blade 2: Platinum Steel / Chiseled Blade Gradient -->
+    <linearGradient id="bladeSteelLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="35%" stop-color="#E2E8F0"/>
+      <stop offset="75%" stop-color="#94A3B8"/>
+      <stop offset="100%" stop-color="#64748B"/>
+    </linearGradient>
+    <linearGradient id="bladeSteelRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="40%" stop-color="#CBD5E1"/>
+      <stop offset="85%" stop-color="#64748B"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+
+    <!-- Guard Metallic Gradient -->
+    <linearGradient id="guardGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+
+    <!-- Clash Spark Radial Flare -->
+    <radialGradient id="sparkFlare" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="25%" stop-color="#67E8F9"/>
+      <stop offset="60%" stop-color="#00E5FF" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Drop Shadow for Front Sword Depth -->
+    <filter id="swordDepth" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000000" flood-opacity="0.75"/>
+    </filter>
+  </defs>
+
+  <!-- Base Badge Container (Rounded Squircle for All Tab Themes) -->
+  <rect x="36" y="36" width="440" height="440" rx="108" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="7"/>
+
+  <!-- Soft Ambient Tech Glow -->
+  <circle cx="256" cy="256" r="180" fill="url(#centerGlow)"/>
+
+  <!-- BACK SWORD (Top-Right to Bottom-Left, +45deg) -->
+  <g transform="translate(256, 256) rotate(45)">
+    <!-- Blade Left Facet -->
+    <path d="M 0 -172 L -15 -136 L -13 96 L 0 96 Z" fill="url(#bladeSteelLeft)"/>
+    <!-- Blade Right Facet -->
+    <path d="M 0 -172 L 15 -136 L 13 96 L 0 96 Z" fill="url(#bladeSteelRight)"/>
+    <!-- Center Spine Highlight -->
+    <line x1="0" y1="-170" x2="0" y2="96" stroke="#FFFFFF" stroke-width="1.5" stroke-opacity="0.6"/>
+
+    <!-- Guard -->
+    <path d="M 0 96 L 30 102 L 26 114 L 0 108 L -26 114 L -30 102 Z" fill="url(#guardGrad)" stroke="#38BDF8" stroke-width="1.5"/>
+
+    <!-- Grip -->
+    <path d="M -6 109 L 6 109 L 5 146 L -5 146 Z" fill="#0A0F1D" stroke="#1E293B" stroke-width="1"/>
+    <!-- Grip Ring Accents -->
+    <line x1="-5" y1="121" x2="5" y2="121" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.7"/>
+    <line x1="-5" y1="133" x2="5" y2="133" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.7"/>
+
+    <!-- Pommel -->
+    <path d="M 0 146 L 11 156 L 0 167 L -11 156 Z" fill="#0284C7" stroke="#38BDF8" stroke-width="1.5"/>
+  </g>
+
+  <!-- FRONT SWORD (Top-Left to Bottom-Right, -45deg) with Shadow -->
+  <g transform="translate(256, 256) rotate(-45)" filter="url(#swordDepth)">
+    <!-- Blade Left Facet (Cyan Glow Edge) -->
+    <path d="M 0 -172 L -15 -136 L -13 96 L 0 96 Z" fill="url(#bladeCyanLeft)"/>
+    <!-- Blade Right Facet (Luminous Cyan/White) -->
+    <path d="M 0 -172 L 15 -136 L 13 96 L 0 96 Z" fill="url(#bladeCyanRight)"/>
+    <!-- Center Spine Highlight -->
+    <line x1="0" y1="-170" x2="0" y2="96" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.9"/>
+
+    <!-- Guard -->
+    <path d="M 0 96 L 30 102 L 26 114 L 0 108 L -26 114 L -30 102 Z" fill="url(#guardGrad)" stroke="#00F0FF" stroke-width="1.8"/>
+
+    <!-- Grip -->
+    <path d="M -6 109 L 6 109 L 5 146 L -5 146 Z" fill="#0A0F1D" stroke="#1E293B" stroke-width="1"/>
+    <!-- Grip Ring Accents -->
+    <line x1="-5" y1="121" x2="5" y2="121" stroke="#00F0FF" stroke-width="1.5"/>
+    <line x1="-5" y1="133" x2="5" y2="133" stroke="#00F0FF" stroke-width="1.5"/>
+
+    <!-- Pommel -->
+    <path d="M 0 146 L 11 156 L 0 167 L -11 156 Z" fill="#00F0FF" stroke="#E0F7FF" stroke-width="1.5"/>
+  </g>
+
+  <!-- CLASH CENTER ENERGY BURST -->
+  <!-- Ambient Flare -->
+  <circle cx="256" cy="256" r="48" fill="url(#sparkFlare)"/>
+
+  <!-- 4-Pointed Precision Energy Spark -->
+  <path d="M 256 222 Q 256 256 290 256 Q 256 256 256 290 Q 256 256 222 256 Q 256 256 256 222 Z" fill="#00F0FF" opacity="0.9"/>
+  <!-- Inner White Hot Core Spark -->
+  <path d="M 256 234 Q 256 256 278 256 Q 256 256 256 278 Q 256 256 234 256 Q 256 256 256 234 Z" fill="#FFFFFF"/>
+  <!-- Central Diamond Core -->
+  <polygon points="256,247 265,256 256,265 247,256" fill="#FFFFFF"/>
+</svg>
