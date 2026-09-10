@@ -219,3 +219,162 @@ body::before {
 .text-copper { color: var(--copper); }
 .text-silver { color: var(--silver); }
 .text-muted { color: var(--text-muted); }
+
+/* ==========================================================================
+   Spirited Animations & Keyframes
+   ========================================================================== */
+
+@keyframes aura-pulse {
+  0%, 100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes shockwave-ring {
+  0% {
+    r: 10;
+    opacity: 0.9;
+    stroke-width: 3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    r: 75;
+    opacity: 0;
+    stroke-width: 0.5;
+  }
+}
+
+@keyframes shockwave-ring-outer {
+  0% {
+    r: 20;
+    opacity: 0.8;
+    stroke-width: 2.5;
+  }
+  100% {
+    r: 120;
+    opacity: 0;
+    stroke-width: 0.2;
+  }
+}
+
+@keyframes rune-rotate-cw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rune-rotate-ccw {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes spark-flicker {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes blade-gleam-sweep {
+  0% {
+    stop-color: rgba(255, 255, 255, 0);
+    offset: 0%;
+  }
+  50% {
+    stop-color: rgba(255, 255, 255, 0.95);
+    offset: 50%;
+  }
+  100% {
+    stop-color: rgba(255, 255, 255, 0);
+    offset: 100%;
+  }
+}
+
+@keyframes spirit-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+@keyframes spirit-float-alt {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-0.5deg);
+  }
+}
+
+@keyframes shimmer-sweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(198, 40, 40, 0.3), 0 0 30px rgba(198, 40, 40, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(198, 40, 40, 0.6), 0 0 50px rgba(198, 40, 40, 0.25);
+  }
+}
+
+@keyframes energy-flow {
+  0% {
+    stroke-dashoffset: 200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ember-rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120px) translateX(var(--ember-x, 15px)) scale(0.3);
+    opacity: 0;
+  }
+}
+
+@keyframes clash-shake {
+  0% { transform: translate(0, 0) scale(1); }
+  20% { transform: translate(-4px, 3px) scale(1.02); }
+  40% { transform: translate(4px, -3px) scale(0.99); }
+  60% { transform: translate(-2px, 1px) scale(1.01); }
+  80% { transform: translate(2px, -1px) scale(1); }
+  100% { transform: translate(0, 0) scale(1); }
+}

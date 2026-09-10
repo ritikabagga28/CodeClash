@@ -1,5 +1,15 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Trophy, Flame, Swords, Shield, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  Trophy,
+  Swords,
+  Zap,
+  Brain,
+  Code2,
+  Crown,
+  Target,
+  Sparkles
+} from "lucide-react";
 import SwordClashVisual from "../components/SwordClashVisual";
 import Logo from "../components/Logo";
 import { useApp } from "../context/AppContext";
@@ -12,43 +22,48 @@ const HOW_IT_WORKS_STEPS = [
     title: "ENTER",
     subtitle: "Select your division",
     desc: "Step onto the battlefield. Choose from warm-up challenges to grandmaster algorithmic battlegrounds.",
+    icon: Target,
   },
   {
     step: "02",
     title: "THINK",
     subtitle: "Analyze the pressure point",
     desc: "Deconstruct time complexities, boundary conditions, and optimal data structures before writing a single line.",
+    icon: Brain,
   },
   {
     step: "03",
     title: "CODE",
     subtitle: "Execute under real constraints",
     desc: "Craft clean, precise Java implementations right in the browser with live compiler feedback.",
+    icon: Code2,
   },
   {
     step: "04",
     title: "CLASH",
     subtitle: "Test against hidden inputs",
     desc: "Pit your solution against edge cases, memory limits, and automated execution benchmarks.",
+    icon: Swords,
   },
   {
     step: "05",
     title: "CLIMB",
     subtitle: "Claim your position",
     desc: "Earn XP, gain points, climb the global leaderboard, and forge your legacy as a champion.",
+    icon: Crown,
   },
 ];
 
 const MOCK_LEADERBOARD = [
-  { rank: 1, name: "Ada Lovelace", score: "4,850 pts", solved: 24, time: "18m 42s", tier: "crimson" },
-  { rank: 2, name: "Alan Turing", score: "4,620 pts", solved: 23, time: "21m 05s", tier: "copper" },
-  { rank: 3, name: "Grace Hopper", score: "4,310 pts", solved: 21, time: "24m 12s", tier: "silver" },
-  { rank: 4, name: "Linus Torvalds", score: "3,980 pts", solved: 19, time: "29m 40s", tier: "muted" },
-  { rank: 5, name: "Margaret Hamilton", score: "3,740 pts", solved: 18, time: "31m 15s", tier: "muted" },
+  { rank: 1, name: "Ada Lovelace", score: "4,850 pts", solved: 24, time: "18m 42s", tier: "crimson", title: "Grandmaster", medal: "🥇" },
+  { rank: 2, name: "Alan Turing", score: "4,620 pts", solved: 23, time: "21m 05s", tier: "copper", title: "Master", medal: "🥈" },
+  { rank: 3, name: "Grace Hopper", score: "4,310 pts", solved: 21, time: "24m 12s", tier: "silver", title: "Diamond", medal: "🥉" },
+  { rank: 4, name: "Linus Torvalds", score: "3,980 pts", solved: 19, time: "29m 40s", tier: "muted", title: "Platinum", medal: "4" },
+  { rank: 5, name: "Margaret Hamilton", score: "3,740 pts", solved: 18, time: "31m 15s", tier: "muted", title: "Gold", medal: "5" },
 ];
 
 export default function Home() {
-  const { progress, customChallenges } = useApp();
+  const { customChallenges } = useApp();
   const allChallenges = [...CHALLENGES, ...customChallenges];
   const featuredChallenges = allChallenges.slice(0, 5);
 
@@ -56,30 +71,67 @@ export default function Home() {
     <div className="home-page-wrapper">
       {/* 1. HERO SECTION */}
       <section className="hero-section">
+        {/* Atmospheric Ambient Glows & Floating Embers */}
+        <div className="hero-ambient-glow hero-glow-primary" />
+        <div className="hero-ambient-glow hero-glow-secondary" />
+        <div className="hero-ambient-particles">
+          <span className="ambient-ember e1" />
+          <span className="ambient-ember e2" />
+          <span className="ambient-ember e3" />
+          <span className="ambient-ember e4" />
+          <span className="ambient-ember e5" />
+          <span className="ambient-ember e6" />
+        </div>
+
         <div className="hero-container">
           <div className="hero-content">
             <div className="hero-eyebrow">
-              <span className="hero-eyebrow-badge">CODE CLASH · 2026</span>
+              <span className="hero-eyebrow-badge">
+                <Sparkles size={12} className="eyebrow-spark-icon" />
+                <span>CODE CLASH · ARENA 2026</span>
+              </span>
               <span className="hero-eyebrow-line" />
+              <span className="hero-live-badge">
+                <span className="pulse-dot" />
+                <span>ARENA OPEN</span>
+              </span>
             </div>
 
             <h1 className="hero-headline">
               Where logic
               <br />
-              <span className="hero-headline-accent">meets pressure.</span>
+              <span className="hero-headline-accent spirit-text-glow">meets pressure.</span>
             </h1>
 
             <p className="hero-description">
               An elite competitive programming arena for developers who perform under constraints.
-              Solve complex algorithmic challenges, benchmark your solutions against hidden test cases, and climb the international leaderboard.
+              Solve complex algorithmic challenges, benchmark your solutions against hidden test cases, and forge your legacy.
             </p>
 
+            {/* Quick Battle Feature Chips */}
+            <div className="hero-feature-chips">
+              <div className="hero-chip">
+                <Zap size={13} className="chip-icon zap" />
+                <span>Sub-millisecond Java Benchmarks</span>
+              </div>
+              <div className="hero-chip">
+                <Swords size={13} className="chip-icon swords" />
+                <span>Algorithmic Battlegrounds</span>
+              </div>
+              <div className="hero-chip">
+                <Trophy size={13} className="chip-icon trophy" />
+                <span>Global Champion Standings</span>
+              </div>
+            </div>
+
             <div className="hero-actions">
-              <Link to="/login" className="btn-primary-clash">
+              <Link to="/login" className="btn-primary-clash heroic">
+                <span className="btn-shine-sweep" />
+                <Swords size={16} className="btn-sword-icon" />
                 <span>ENTER THE CLASH</span>
-                <ArrowRight size={16} />
+                <ArrowRight size={16} className="btn-arrow-icon" />
               </Link>
-              <Link to="/challenges" className="btn-secondary-clash">
+              <Link to="/challenges" className="btn-secondary-clash heroic">
                 <span>EXPLORE CHALLENGES</span>
               </Link>
             </div>
@@ -126,19 +178,36 @@ export default function Home() {
               </p>
               <div className="philosophy-pillars">
                 <div className="pillar-item">
-                  <span className="pillar-num">01</span>
+                  <div className="pillar-top-row">
+                    <span className="pillar-num">01</span>
+                    <div className="pillar-icon-badge">
+                      <Brain size={16} />
+                    </div>
+                  </div>
                   <h4>Participants Analyze</h4>
-                  <p>Deconstruct problem constraints to identify hidden edge cases and optimization paths.</p>
+                  <p>Deconstruct problem constraints to identify hidden edge cases, invariant bounds, and optimal algorithmic paths.</p>
                 </div>
+
                 <div className="pillar-item">
-                  <span className="pillar-num">02</span>
+                  <div className="pillar-top-row">
+                    <span className="pillar-num">02</span>
+                    <div className="pillar-icon-badge">
+                      <Target size={16} />
+                    </div>
+                  </div>
                   <h4>They Strategize</h4>
-                  <p>Choose optimal space and time complexities under strict execution benchmarks.</p>
+                  <p>Choose optimal space and time complexities under strict microsecond execution benchmarks and memory ceilings.</p>
                 </div>
+
                 <div className="pillar-item">
-                  <span className="pillar-num">03</span>
+                  <div className="pillar-top-row">
+                    <span className="pillar-num">03</span>
+                    <div className="pillar-icon-badge">
+                      <Swords size={16} />
+                    </div>
+                  </div>
                   <h4>They Compete</h4>
-                  <p>Clash code against automated test runners and rival programmers across the world.</p>
+                  <p>Clash code against automated test runners and rival programmers across the world in relentless pursuit of mastery.</p>
                 </div>
               </div>
             </div>
@@ -155,17 +224,23 @@ export default function Home() {
           </div>
 
           <div className="how-timeline">
-            {HOW_IT_WORKS_STEPS.map((step, index) => (
-              <div className="how-step-node" key={step.step}>
-                <div className="how-step-top">
-                  <span className="how-step-num">{step.step}</span>
-                  {index < HOW_IT_WORKS_STEPS.length - 1 && <div className="how-step-connector" />}
+            {HOW_IT_WORKS_STEPS.map((step, index) => {
+              const StepIcon = step.icon;
+              return (
+                <div className="how-step-node" key={step.step}>
+                  <div className="how-step-top">
+                    <span className="how-step-num">{step.step}</span>
+                    <div className="how-step-icon-wrap">
+                      <StepIcon size={16} />
+                    </div>
+                    {index < HOW_IT_WORKS_STEPS.length - 1 && <div className="how-step-connector" />}
+                  </div>
+                  <h3 className="how-step-title">{step.title}</h3>
+                  <span className="how-step-sub">{step.subtitle}</span>
+                  <p className="how-step-desc">{step.desc}</p>
                 </div>
-                <h3 className="how-step-title">{step.title}</h3>
-                <span className="how-step-sub">{step.subtitle}</span>
-                <p className="how-step-desc">{step.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -257,10 +332,15 @@ export default function Home() {
             {MOCK_LEADERBOARD.map((item) => (
               <div className={`lb-data-row tier-${item.tier}`} key={item.rank}>
                 <div className="lb-col-rank">
-                  <span className={`rank-badge rank-${item.rank}`}>#{item.rank}</span>
+                  <span className={`rank-badge rank-${item.rank}`}>
+                    {item.rank <= 3 ? item.medal : `#${item.rank}`}
+                  </span>
                 </div>
                 <div className="lb-col-player">
-                  <span className="player-name">{item.name}</span>
+                  <div className="player-info-wrap">
+                    <span className="player-name">{item.name}</span>
+                    <span className={`player-title-badge tier-${item.tier}`}>{item.title}</span>
+                  </div>
                 </div>
                 <div className="lb-col-score">
                   <span className="score-text">{item.score}</span>
@@ -282,7 +362,7 @@ export default function Home() {
         <div className="section-container">
           <div className="final-cta-box">
             <div className="final-cta-bg-motif">
-              <Logo size={240} className="motif-logo" />
+              <Logo size={280} className="motif-logo" />
             </div>
             <div className="final-cta-content">
               <span className="section-eyebrow light">ARENA AWAITS</span>
@@ -292,12 +372,13 @@ export default function Home() {
                 <span className="final-cta-headline-accent">enter the clash?</span>
               </h2>
               <p className="final-cta-subtitle">
-                Test your code against the world's most demanding benchmarks.
+                Test your code against the world's most demanding algorithmic benchmarks.
               </p>
               <div className="final-cta-buttons">
-                <Link to="/login" className="btn-primary-clash lg">
+                <Link to="/login" className="btn-primary-clash lg heroic">
+                  <Swords size={18} />
                   <span>ENTER THE CLASH NOW</span>
-                  <ArrowRight size={16} />
+                  <ArrowRight size={18} />
                 </Link>
               </div>
             </div>
